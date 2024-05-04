@@ -22,8 +22,15 @@ def clientes():
     cod_cliente = input("Digite a sua identificação: ")
     nome = str(input("Digite seu nome: "))
     e_mail = input("Digite seu e-mail: ")
+    
+    # Abra um arquivo em modo de escrita ('w')
+    with open('dados_pessoais.txt', 'w') as arquivo:
+    # Escreva os dados no arquivo, separados por vírgula
+        arquivo.write(f'{nome},{cod_cliente},{e_mail}')
+
+    print('Dados salvos com sucesso!')
     #Execute um SQL
-    c.execute('INSERT INTO clientes VALUES("'+cod_cliente+'","'+nome+'","'+e_mail+'")')
+    #c.execute('INSERT INTO clientes VALUES("'+cod_cliente+'","'+nome+'","'+e_mail+'")')
 
     print('Dados  do cliente inseridos com sucesso!')
 
@@ -40,8 +47,15 @@ def carros():
     placa = input("Digite as referências da placa: ")
     modelo = input("Digite o modelo do carro: ")
     cor = input("Digite a cor do carro: ")
+    
+    # Abra um arquivo em modo de escrita ('w')
+    with open('dados_pessoais.txt', 'w') as arquivo:
+    # Escreva os dados no arquivo, separados por vírgula
+        arquivo.write(f'{placa},{modelo},{cor}')
+
+    print('Dados salvos com sucesso!')
     #Execute um SQL
-    c.execute('INSERT INTO carros VALUES("'+placa+'","'+modelo+'","'+cor+'")')
+    #c.execute('INSERT INTO carros VALUES("'+placa+'","'+modelo+'","'+cor+'")')
 
     print()
     
@@ -52,7 +66,7 @@ clientes()
 carros()
 
 # O commit diz para sua conexão aplicar todas as manipulações de sua SQL para seus dados e torná-las permanentes
-conn.commit()
+#conn.commit()
 
 
 
